@@ -1,3 +1,7 @@
+# Refuge
+
+Projeto acadêmico para doações para pessoas em situação de deslocamento forçado.
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
