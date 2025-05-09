@@ -8,7 +8,8 @@ const EstilosGlobais = createGlobalStyle`
   body {
     margin: 0;
     min-height: 100vh;
-    font-family: sans-serif
+    font-family: sans-serif;
+    background-color: #F0F0F0;
   }
   main {
     display: block;

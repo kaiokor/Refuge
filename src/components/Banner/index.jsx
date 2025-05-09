@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import Botao from "../Botao";
+import { Link } from "react-router-dom";
+import { children } from "react";
 
 const BannerContainer = styled.div`
   display: flex;
@@ -20,23 +22,25 @@ const TextoBanner = styled.div`
 
 const ImagemBanner = styled.img``;
 
-export default function Banner() {
+export default function Banner({
+  children,
+  titulo,
+  tituloBotao = "Quero Doar",
+  rotaBotao = "/",
+}) {
   return (
     <BannerContainer>
       <TextoBanner>
-        <h1>
-          Doe e pesquise instituições, de forma segura, e veja o impacto que vc
-          fez em tempo real
-        </h1>
-        <p>
-          Com a Refuge, certificamos que sua doação chegará para os mais
-          necessitados, sendo também fonte de informações, a Refuge te ajuda na
-          sua caminhada oferecendo o apoio que você precisa para ajudar
-          refugiados
-        </p>
-        <Botao>Quero Doar</Botao>
+        <h1>{titulo}</h1>
+        <p>{children}</p>
+        <Link
+          to={rotaBotao}
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
+          <Botao>{tituloBotao}</Botao>
+        </Link>
       </TextoBanner>
-      <ImagemBanner src="../../../public/imagens/zula.png" alt="Banner" />
+      <ImagemBanner src="/imagens/zula.png" alt="Banner" />
     </BannerContainer>
   );
 }

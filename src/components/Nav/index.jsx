@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Botao from "../Botao";
+import { Link } from "react-router-dom";
 
 const NavContainer = styled.div`
   max-width: 1920px;
@@ -10,6 +11,8 @@ const NavContainer = styled.div`
   align-items: center;
   padding: 32px;
   box-sizing: border-box;
+  color: #fff;
+  font-weight: bold;
 `;
 const LogoContainer = styled.div`
   display: flex;
@@ -23,10 +26,9 @@ const LogoContainer = styled.div`
 `;
 const BotoesContainer = styled.div`
   display: flex;
-  gap: 16px;
+  gap: 64px;
   align-items: center;
   a {
-    color: #fff;
     font-family: sans-serif;
     font-size: 24px;
   }
@@ -35,13 +37,22 @@ const BotoesContainer = styled.div`
 export default function Nav() {
   return (
     <NavContainer>
-      <LogoContainer>
-        <img src="../../../public/imagens/logo.png" alt="Logo" />
-        <h1>Refuge</h1>
-      </LogoContainer>
+      <Link to="/" style={{ textDecoration: "none" }}>
+        <LogoContainer>
+          <img src="/imagens/logo.png" alt="Logo" />
+          <h1>Refuge</h1>
+        </LogoContainer>
+      </Link>
       <BotoesContainer>
-        <a>Cadastro/login</a>
-        <Botao>Quero Doar</Botao>
+        <Link to="/login" style={{ textDecoration: "none", color: "inherit" }}>
+          <p>Cadastro/login</p>
+        </Link>
+        <Link
+          to="/pesquisa"
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
+          <Botao>Quero Doar</Botao>
+        </Link>
       </BotoesContainer>
     </NavContainer>
   );
