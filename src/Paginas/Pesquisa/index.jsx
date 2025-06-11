@@ -1,6 +1,5 @@
 import BannerPesquisa from "../../components/BannerPesquisa";
-import EstilosGlobais from "../../components/EstilosGlobais";
-import Nav from "../../components/nav";
+import Nav from "../../components/Nav";
 import TelaContainer from "../../components/TelaContainer";
 import styled from "styled-components";
 import Titulo from "../../components/Titulo";
@@ -8,6 +7,7 @@ import CardOrg from "../../components/CardOrg";
 import Footer from "../../components/Footer";
 import { useContext, useState } from "react";
 import { OrgContext } from "../../context/OrgContext";
+
 const CardContainer = styled.div`
   display: flex;
   flex-wrap: wrap;

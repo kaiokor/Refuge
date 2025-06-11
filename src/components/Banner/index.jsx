@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import Botao from "../Botao";
 import { Link } from "react-router-dom";
-import { children } from "react";
 
 const BannerContainer = styled.div`
   display: flex;

@@ -1,5 +1,5 @@
 import Banner from "../../components/Banner";
-import Nav from "../../components/nav";
+import Nav from "../../components/Nav";
 import TelaContainer from "../../components/TelaContainer";
 import styled from "styled-components";
 import Titulo from "../../components/Titulo";
@@ -89,11 +89,14 @@ export default function Premium() {
 
   async function Enviar(e) {
     e.preventDefault();
-    const resp = fetch(`http://localhost:3000/usuarios/${usuario._id}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ premium: true }),
-    });
+    const resp = fetch(
+      `https://refuge-api-kdff.vercel.app/usuarios/${usuario._id}`,
+      {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ premium: true }),
+      }
+    );
     navegar("/");
   }
 

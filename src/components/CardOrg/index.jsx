@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Botao from "../Botao";
 import { Link } from "react-router-dom";
 
 const CardContainer = styled.div`
@@ -39,7 +38,6 @@ const BotaoEstilizado = styled.div`
   align-items: center;
   justify-content: center;
   font-size: 16px;
-
   color: #fff;
 `;
 

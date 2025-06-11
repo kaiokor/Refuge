@@ -1,5 +1,5 @@
 import Form from "../../../../components/Form";
-import Nav from "../../../../components/nav";
+import Nav from "../../../../components/Nav";
 import TelaContainer from "../../../../components/TelaContainer";
 import SecaoPergunta from "../../../../components/SecaoPergunta";
 import SecaoOpcao from "../../../../components/SecaoOpcao";

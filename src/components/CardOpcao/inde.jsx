@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { children } from "react";
 
 const ContainerOpcao = styled.div`
   width: 290px;

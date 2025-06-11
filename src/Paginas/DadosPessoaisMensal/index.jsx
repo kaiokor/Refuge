@@ -9,7 +9,7 @@ import SecaoDados from "../../components/SecaoDados";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import Nav from "../../components/nav";
+import Nav from "../../components/Nav";
 
 const Div1 = styled.div`
   display: flex;

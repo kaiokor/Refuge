@@ -1,10 +1,8 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import Form from "../../components/Form";
-import Nav from "../../components/nav";
+import Nav from "../../components/Nav";
 import SecaoInput from "../../components/SecaoInput";
-import SecaoPergunta from "../../components/SecaoPergunta";
 import TelaContainer from "../../components/TelaContainer";
-import styled from "styled-components";
 import { UsuarioContext } from "../../context/usuarioContext";
 import SecaoBotoes from "../../components/SecaoBotoes";
 import { useNavigate } from "react-router-dom";
@@ -28,11 +26,14 @@ export default function RefugeCoins() {
     } else {
       const RfgCAtualizado =
         parseFloat(usuario.refugeCoins) - parseFloat(quantRfgC);
-      const resp = fetch(`http://localhost:3000/usuarios/${usuario._id}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ refugeCoins: RfgCAtualizado }),
-      });
+      const resp = fetch(
+        `https://refuge-api-kdff.vercel.app/usuarios/${usuario._id}`,
+        {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ refugeCoins: RfgCAtualizado }),
+        }
+      );
       navegar("/doacaoConcluida");
     }
   }

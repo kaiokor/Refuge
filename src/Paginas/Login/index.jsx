@@ -81,7 +81,7 @@ export default function Login() {
   async function TemUsuario(e) {
     e.preventDefault();
     try {
-      const resp = await fetch("http://localhost:3000/usuarios");
+      const resp = await fetch("https://refuge-api-kdff.vercel.app/usuarios");
       const dados = await resp.json();
       const usuarioExiste = dados.some(
         (item) => item.email === login.email && item.senha === login.senha

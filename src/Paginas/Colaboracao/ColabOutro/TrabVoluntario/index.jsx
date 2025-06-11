@@ -1,6 +1,6 @@
 import Form from "../../../../components/Form";
 import InputTexto from "../../../../components/inputTexto";
-import Nav from "../../../../components/nav";
+import Nav from "../../../../components/Nav";
 import SecaoDados from "../../../../components/SecaoDados";
 import TelaContainer from "../../../../components/TelaContainer";
 import SecaoBotoes from "../../../../components/SecaoBotoes";

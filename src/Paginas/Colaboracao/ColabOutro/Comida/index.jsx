@@ -1,7 +1,7 @@
 import { useState } from "react";
 import CardOpcao from "../../../../components/CardOpcao/inde";
 import Form from "../../../../components/Form";
-import Nav from "../../../../components/nav";
+import Nav from "../../../../components/Nav";
 import SecaoOpcao from "../../../../components/SecaoOpcao";
 import TelaContainer from "../../../../components/TelaContainer";
 import InputTexto from "../../../../components/inputTexto";

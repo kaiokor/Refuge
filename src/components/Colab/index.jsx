@@ -1,4 +1,4 @@
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Form from "../Form";
 import styled from "styled-components";
 import CardMonetario from "../CardMonetario";

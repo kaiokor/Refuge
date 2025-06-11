@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import CardDoacaoOutro from "../../../components/CardDoacao/CardDoacaoOutro";
-import Nav from "../../../components/nav";
+import Nav from "../../../components/Nav";
 import TelaContainer from "../../../components/TelaContainer";
 import Titulo from "../../../components/Titulo";
 import styled from "styled-components";

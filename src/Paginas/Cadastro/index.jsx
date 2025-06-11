@@ -37,7 +37,7 @@ export default function Cadastro() {
 
   async function Cadastrar(e) {
     e.preventDefault();
-    const resp = await fetch("http://localhost:3000/usuarios", {
+    const resp = await fetch("https://refuge-api-kdff.vercel.app/usuarios", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(user),

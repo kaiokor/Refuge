@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Form from "../../../../components/Form";
-import Nav from "../../../../components/nav";
+import Nav from "../../../../components/Nav";
 import SecaoBotoes from "../../../../components/SecaoBotoes";
 import SecaoInput from "../../../../components/SecaoInput";
 import SecaoPergunta from "../../../../components/SecaoPergunta";

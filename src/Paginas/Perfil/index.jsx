@@ -1,12 +1,10 @@
 import { useContext, useEffect, useState } from "react";
 import Botao from "../../components/Botao";
 import Form from "../../components/Form";
-import SecaoBotoes from "../../components/SecaoBotoes";
 import SecaoDados from "../../components/SecaoDados";
 import TelaContainer from "../../components/TelaContainer";
 import styled from "styled-components";
 import { UsuarioContext } from "../../context/usuarioContext";
-import { OrgContext } from "../../context/OrgContext";
 import { useNavigate } from "react-router-dom";
 import CardHistorico from "../../components/CardHistorico";
 import Nav from "../../components/Nav";
@@ -58,7 +56,9 @@ export default function Perfil() {
   useEffect(() => {
     async function ListarHistorico() {
       try {
-        const resp = await fetch("http://localhost:3000/historico");
+        const resp = await fetch(
+          "https://refuge-api-kdff.vercel.app/historico"
+        );
         const historico = await resp.json();
         const historicoUsuario = historico.filter(
           (item) => item.usuario._id === usuario._id

@@ -51,11 +51,14 @@ export default function EditarPerfil() {
   async function Envio(e) {
     e.preventDefault();
     try {
-      const res = await fetch(`http://localhost:3000/usuarios/${usuario._id}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(user),
-      });
+      const res = await fetch(
+        `https://refuge-api-kdff.vercel.app/usuarios/${usuario._id}`,
+        {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(user),
+        }
+      );
       if (!res.ok) throw new Error(`Status ${res.status}`);
       const updated = await res.json();
       console.log("Atualização feita com sucesso", updated);
@@ -65,7 +68,9 @@ export default function EditarPerfil() {
     }
 
     try {
-      const res = await fetch(`http://localhost:3000/usuarios/${usuario._id}`);
+      const res = await fetch(
+        `https://refuge-api-kdff.vercel.app/usuarios/${usuario._id}`
+      );
       const dados = await res.json();
       setUsuario(dados);
     } catch (e) {

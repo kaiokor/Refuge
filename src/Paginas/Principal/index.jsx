@@ -3,7 +3,7 @@ import BannerDoacao from "../../components/BannerDoacao";
 import BannerEstatistica from "../../components/BannerEstatistica";
 import Destaque from "../../components/Destaques";
 import Footer from "../../components/Footer";
-import Nav from "../../components/nav";
+import Nav from "../../components/Nav";
 
 import TelaContainer from "../../components/TelaContainer";
 

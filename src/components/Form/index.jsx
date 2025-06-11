@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { children } from "react";
 import Titulo from "../Titulo";
 
 const ContainerTitulo = styled.div`

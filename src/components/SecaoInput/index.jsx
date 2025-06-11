@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import InputQuantidade from "../InputQuantidade";
-import SecaoBotoes from "../SecaoBotoes";
 import InputTexto from "../inputTexto";
 
 const DivPergunta = styled.div`
@@ -26,7 +25,6 @@ export default function SecaoInput({
   value,
   valueTexto,
   inputQuant = true,
-  refugeCoins,
   erro,
 }) {
   return (
