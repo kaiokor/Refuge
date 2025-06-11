@@ -1,9 +1,9 @@
-import Nav from "../../components/nav";
+import Nav from "../../components/Nav";
 import TelaContainer from "../../components/TelaContainer";
 import styled from "styled-components";
 import Titulo from "../../components/Titulo";
 import CardDoacao from "../../components/CardDoacao";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const DoaContainer = styled.div`
   max-width: 100%;
@@ -26,6 +26,10 @@ const CardDoacaoContainer = styled.div`
 `;
 
 export default function DoacaoOrg() {
+  const params = useParams();
+  const rotaUnica = `/doacaoOrg/${params.id}/colabUnica`;
+  const rotaMensal = `/doacaoOrg/${params.id}/colabMensal`;
+  const rotaOutro = `/doacaoOrg/${params.id}/colabOutro`;
   return (
     <TelaContainer>
       <Nav />
@@ -34,7 +38,7 @@ export default function DoacaoOrg() {
           <Titulo cor="#FFF">De qual forma deseja colaborar?</Titulo>
           <CardDoacaoContainer>
             <Link
-              to="/doacaoOrg/colabUnica"
+              to={rotaUnica}
               style={{ textDecoration: "none", color: "inherit" }}
             >
               <CardDoacao
@@ -43,7 +47,7 @@ export default function DoacaoOrg() {
               ></CardDoacao>
             </Link>
             <Link
-              to="/doacaoOrg/colabMensal"
+              to={rotaMensal}
               style={{ textDecoration: "none", color: "inherit" }}
             >
               <CardDoacao
@@ -52,7 +56,7 @@ export default function DoacaoOrg() {
               ></CardDoacao>
             </Link>
             <Link
-              to="/doacaoOrg/colabOutro"
+              to={rotaOutro}
               style={{ textDecoration: "none", color: "inherit" }}
             >
               <CardDoacao

@@ -1,8 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Form from "../Form";
 import styled from "styled-components";
 import CardMonetario from "../CardMonetario";
 import SecaoBotoes from "../SecaoBotoes";
+import { useState } from "react";
 const ContainerCardMonetario = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -41,50 +42,84 @@ const CardTitulo = styled.div`
   margin: 0;
 `;
 
-export default function Colab({ rota = "/" }) {
-  const route = rota;
+export default function Colab({ rota, dadosPessoais }) {
+  const [cardSelecionado, setCardSelecionado] = useState();
+  const [valorSelecionado, setValorSelecionado] = useState();
+  const caminho = `${rota}/${valorSelecionado}/${dadosPessoais}`;
+  const navegar = useNavigate();
+  function Selecionar(CardSelecionado) {
+    setCardSelecionado(CardSelecionado);
+    setValorSelecionado(dadosCard[CardSelecionado].valor);
+  }
+
+  const dadosCard = [
+    {
+      valor: "5,00",
+      descricao:
+        "Equivale a 1 garrafa de 500 ml de água mineral + 1 pacote de biscoito simples",
+    },
+    {
+      valor: "10,00",
+      descricao:
+        "Equivale a Kit de higiene básico: sabonete, shampoo (tamanho viagem) e escova de dente genérica",
+    },
+    {
+      valor: "20,00",
+      descricao:
+        "1 kit de medicamentos OTC (analgésico, antitérmico e antisséptico tópico)",
+    },
+    {
+      valor: "50,00",
+      descricao:
+        "Cesta de alimentos de médio porte (arroz, feijão, óleo, açúcar, café, sal — 5 a 7 itens)",
+    },
+    {
+      valor: "100,00",
+      descricao:
+        "1 colchão inflável simples + 1 jogo de cama (lençol + fronhas)",
+    },
+    {
+      valor: "150,00",
+      descricao:
+        "“Starter pack” familiar: cesta de alimentos, kit higiene completo e vale-transporte para o mês",
+    },
+    {
+      valor: "200,00",
+      descricao:
+        "Montagem de mobília essencial: colchonete + fogareiro portátil + utensílios de cozinha",
+    },
+  ];
+
   return (
     <Form titulo="Doação Monetaria" largura="1135px">
       <ContainerCardMonetario>
-        <Link to={route} style={{ textDecoration: "none", color: "inherit" }}>
-          <CardMonetario valor="5,00"></CardMonetario>
-        </Link>
-        <Link to={route} style={{ textDecoration: "none", color: "inherit" }}>
-          <CardMonetario valor="10,00"></CardMonetario>
-        </Link>
-        <Link to={route} style={{ textDecoration: "none", color: "inherit" }}>
-          <CardMonetario valor="20,00"></CardMonetario>
-        </Link>
-        <Link to={route} style={{ textDecoration: "none", color: "inherit" }}>
-          <CardMonetario valor="50,00"></CardMonetario>
-        </Link>
-        <Link to={route} style={{ textDecoration: "none", color: "inherit" }}>
-          <CardMonetario valor="100,00"></CardMonetario>
-        </Link>
-        <Link to={route} style={{ textDecoration: "none", color: "inherit" }}>
-          <CardMonetario valor="150,00"></CardMonetario>
-        </Link>
-        <Link to={route} style={{ textDecoration: "none", color: "inherit" }}>
-          <CardMonetario valor="200,00"></CardMonetario>
-        </Link>
+        {dadosCard.map((item, index) => (
+          <CardMonetario
+            key={index}
+            valor={item.valor}
+            descricao={item.descricao}
+            selecionado={cardSelecionado == index ? true : false}
+            AoClicar={() => Selecionar(index)}
+          ></CardMonetario>
+        ))}
+
         <OutrasOpcoes>
-          <Link to={route} style={{ textDecoration: "none", color: "inherit" }}>
-            <CardContainer>
-              <CardTitulo>Doe Outro</CardTitulo>
-            </CardContainer>
-          </Link>
-          <Link to={route} style={{ textDecoration: "none", color: "inherit" }}>
-            <CardContainer>
-              <img
-                src="/imagens/RefugeCoin.png"
-                style={{ width: "56px", height: "56px" }}
-              />
-              <CardTitulo>Refuge Coin</CardTitulo>
-            </CardContainer>
-          </Link>
+          <CardContainer>
+            <CardTitulo>Doe Outro</CardTitulo>
+          </CardContainer>
+
+          <CardContainer>
+            <img
+              src="/imagens/RefugeCoin.png"
+              style={{ width: "56px", height: "56px" }}
+            />
+            <CardTitulo onClick={() => navegar(`/refuge`)}>
+              Refuge Coin
+            </CardTitulo>
+          </CardContainer>
         </OutrasOpcoes>
       </ContainerCardMonetario>
-      <SecaoBotoes caminho={route}></SecaoBotoes>
+      <SecaoBotoes tipo="button" AoClicar={() => navegar(caminho)} />
     </Form>
   );
 }

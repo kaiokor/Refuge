@@ -28,7 +28,7 @@ const InputSelectContainer = styled.div`
 `;
 
 const InputOpcaoEstilizada = styled.select`
-  width: 98%;
+  width: 95%;
   height: 90%;
   font-size: 24px;
   color: #006d5b;
@@ -49,6 +49,9 @@ export default function InputOpcao({
   width = "560px",
   height = "86px",
   corBorda = "#0e5655",
+  AoMudar,
+  name,
+  value,
 }) {
   return (
     <ContainerInput>
@@ -59,7 +62,14 @@ export default function InputOpcao({
         $height={height}
         $corBorda={corBorda}
       >
-        <InputOpcaoEstilizada>{children}</InputOpcaoEstilizada>
+        <InputOpcaoEstilizada
+          onChange={AoMudar}
+          name={name}
+          value={value}
+          required={true}
+        >
+          {children}
+        </InputOpcaoEstilizada>
       </InputSelectContainer>
     </ContainerInput>
   );

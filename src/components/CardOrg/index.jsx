@@ -43,18 +43,24 @@ const BotaoEstilizado = styled.div`
   color: #fff;
 `;
 
-export default function CardOrg() {
+export default function CardOrg({ id, banner, local, nomeBreve, descricao }) {
+  const caminho = `/paginaOrg/${id}`;
   return (
     <CardContainer>
-      <ImagemContainer src="/imagens/imgAcnur.png" />
+      <ImagemContainer
+        src={banner}
+        style={{
+          maxWidth: "420px",
+          height: "250px",
+
+          borderRadius: "8px 8px 0 0",
+        }}
+      />
       <InfoContainer>
-        <h1>São Paulo - SP </h1>
-        <h2>UNHCR ACNUR</h2>
-        <p>
-          Organização que protege pessoas que foram forçadas a deixar suas
-          casas.
-        </p>
-        <Link to="/paginaOrg" style={{ textDecoration: "none" }}>
+        <h1>{local}</h1>
+        <h2>{nomeBreve}</h2>
+        <p>{descricao}</p>
+        <Link to={caminho} style={{ textDecoration: "none" }}>
           <BotaoEstilizado>Saiba Mais</BotaoEstilizado>
         </Link>
       </InfoContainer>

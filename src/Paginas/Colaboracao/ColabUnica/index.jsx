@@ -1,17 +1,17 @@
-import CardMonetario from "../../../components/CardMonetario";
-import Form from "../../../components/Form";
-import Nav from "../../../components/nav";
 import TelaContainer from "../../../components/TelaContainer";
-import styled from "styled-components";
-import SecaoBotoes from "../../../components/SecaoBotoes";
-import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Colab from "../../../components/Colab";
+import Nav from "../../../components/nav";
 
 export default function ColabUnica() {
+  const params = useParams();
   return (
     <TelaContainer>
       <Nav />
-      <Colab rota="/dadosPessoais"></Colab>
+      <Colab
+        dadosPessoais="dadosPessoais"
+        rota={`/doacaoOrg/${params.id}/colabUnica`}
+      ></Colab>
     </TelaContainer>
   );
 }

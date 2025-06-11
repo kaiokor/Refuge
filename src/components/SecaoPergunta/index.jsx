@@ -13,11 +13,24 @@ const DivPergunta = styled.div`
   align-items: center;
 `;
 
-export default function SecaoPergunta({ descricao }) {
+export default function SecaoPergunta({
+  descricao,
+  AoMudar,
+  value,
+  name,
+  dados,
+  setDados,
+}) {
   return (
     <DivPergunta>
       <TituloEstilizado>{descricao}</TituloEstilizado>
-      <InputQuantidade></InputQuantidade>
+      <InputQuantidade
+        AoMudar={AoMudar}
+        value={value}
+        name={name}
+        dados={dados}
+        setDados={setDados}
+      ></InputQuantidade>
     </DivPergunta>
   );
 }

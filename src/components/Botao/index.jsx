@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const BotaoEstilizado = styled.div`
+const BotaoEstilizado = styled.button`
   width: ${(props) => props.$width};
   height: ${(props) => props.$height};
   background-color: ${(props) =>
@@ -15,7 +15,7 @@ const BotaoEstilizado = styled.div`
   justify-content: center;
   font-size: 20px;
   font-weight: bold;
-
+  margin-top: ${(props) => props.$marginTop};
   &:hover {
     background-color: #005a4a;
     cursor: pointer;
@@ -30,6 +30,8 @@ export default function Botao({
   corFundo = "",
   corLinha = "",
   type = "button",
+  onClick,
+  marginTop,
 }) {
   return (
     <BotaoEstilizado
@@ -39,7 +41,9 @@ export default function Botao({
       $corLinha={corLinha}
       $width={width}
       $height={height}
+      $marginTop={marginTop}
       style={{ textDecoration: "none" }}
+      onClick={onClick}
     >
       {children}
     </BotaoEstilizado>

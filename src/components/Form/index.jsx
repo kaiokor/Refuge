@@ -14,21 +14,22 @@ const FormEstilizado = styled.form`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: space-between; // o problema
   gap: 32px;
 `;
 
-export default function Form({ children, titulo, largura = "955px" }) {
-  const AoMudar = (evento) => {
-    evento.preventDefault();
-  };
-
+export default function Form({
+  children,
+  titulo,
+  largura = "955px",
+  AoEnviar,
+}) {
   return (
     <>
       <ContainerTitulo>
         <Titulo>{titulo}</Titulo>
       </ContainerTitulo>
-      <FormEstilizado onSubmit={AoMudar} $largura={largura}>
+      <FormEstilizado onSubmit={AoEnviar} $largura={largura}>
         {children}
       </FormEstilizado>
       ;

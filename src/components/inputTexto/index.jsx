@@ -32,11 +32,23 @@ export default function InputTexto({
   descricao = "Descrição Input",
   largura = "665px",
   cor = "#0e5655",
+  type = "text",
+  AoMudar,
+  value,
+  name,
+  required = true,
 }) {
   return (
     <ContainerInput>
       <LabelInput $corTexto={cor}>{descricao}</LabelInput>
-      <InputEstilizado $largura={largura}></InputEstilizado>
+      <InputEstilizado
+        $largura={largura}
+        type={type}
+        name={name}
+        value={value}
+        onChange={AoMudar}
+        required={required}
+      ></InputEstilizado>
     </ContainerInput>
   );
 }

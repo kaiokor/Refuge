@@ -67,13 +67,20 @@ const BotaoPesquisar = styled.button`
   box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.2);
 `;
 
-export default function BannerPesquisa() {
+export default function BannerPesquisa({ onChange, dados, setDados, Envio }) {
   return (
     <PesquisaContainer>
       <TextoPesquisa>
         <Titulo>Encontre projetos por todo o país</Titulo>
-        <FormularioContainer>
-          <InputOpcao bordaRedonda="120px" corBorda="#006d5b">
+        <FormularioContainer onSubmit={Envio}>
+          <InputOpcao
+            bordaRedonda="120px"
+            corBorda="#006d5b"
+            name="estado"
+            AoMudar={onChange}
+            value={dados.estado}
+          >
+            <option value=" ">Selecione um estado</option>
             <option value="São Paulo">São Paulo</option>
             <option value="Rio de Janeiro">Rio de Janeiro</option>
             <option value="Minas Gerais">Minas Gerais</option>
@@ -103,7 +110,13 @@ export default function BannerPesquisa() {
           </InputOpcao>
 
           <InputTextoContainer>
-            <InputTexto type="text" placeholder="Digite aqui"></InputTexto>
+            <InputTexto
+              type="text"
+              placeholder="Digite aqui"
+              onChange={onChange}
+              value={dados.nome}
+              name="nome"
+            ></InputTexto>
             <BotaoPesquisar>
               <img src="/imagens/pesquisa.png" />
             </BotaoPesquisar>

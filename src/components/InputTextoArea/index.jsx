@@ -33,12 +33,12 @@ const LabelTextArea = styled.label`
   margin-bottom: 4px;
 `;
 
-export default function InputTextoArea({ descricao }) {
+export default function InputTextoArea({ descricao, AoMudar, value, name }) {
   return (
     <>
       <ContainerTextoArea>
         <LabelTextArea>{descricao}</LabelTextArea>
-        <TextoArea></TextoArea>;
+        <TextoArea onChange={AoMudar} value={value} name={name}></TextoArea>;
       </ContainerTextoArea>
     </>
   );

@@ -6,6 +6,8 @@ import styled from "styled-components";
 import Titulo from "../../components/Titulo";
 import CardOrg from "../../components/CardOrg";
 import Footer from "../../components/Footer";
+import { useContext, useState } from "react";
+import { OrgContext } from "../../context/OrgContext";
 const CardContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -19,20 +21,50 @@ const EncontradoContaner = styled.div`
 `;
 
 export default function Pesquisa() {
+  const { org } = useContext(OrgContext);
+  const [pesquisa, setPesquisa] = useState({
+    estado: "",
+    nome: "",
+  });
+
+  function handleChange(e) {
+    const { name, value } = e.target;
+    setPesquisa((prev) => ({ ...prev, [name]: value }));
+  }
+  const OrgFiltrada = org.filter(
+    (item) =>
+      item.nomeBreve.toLowerCase().includes(pesquisa.nome.toLowerCase()) &&
+      item.localizacao.includes(pesquisa.estado)
+  );
+
+  function Envio(e) {
+    e.preventDefault();
+    console.log(pesquisa);
+  }
+
   return (
     <TelaContainer>
       <Nav />
-      <BannerPesquisa />
+      <BannerPesquisa
+        onChange={handleChange}
+        dados={pesquisa}
+        setDados={setPesquisa}
+        Envio={Envio}
+      />
       <EncontradoContaner>
-        <Titulo>8 iniciativas encontradas</Titulo>
+        <Titulo>{OrgFiltrada.length} iniciativas encontradas</Titulo>
       </EncontradoContaner>
       <CardContainer>
-        <CardOrg />
-        <CardOrg />
-        <CardOrg />
-        <CardOrg />
-        <CardOrg />
-        <CardOrg />
+        {OrgFiltrada.map((item, i) => (
+          <CardOrg
+            key={i}
+            id={item.id}
+            banner={item.imgBanner}
+            local={item.localizacao}
+            nomeBreve={item.nomeBreve}
+            descricao={item.descricao}
+          />
+        ))}
       </CardContainer>
       <Footer />
     </TelaContainer>

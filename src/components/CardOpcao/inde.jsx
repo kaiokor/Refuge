@@ -1,18 +1,18 @@
 import styled from "styled-components";
 import { children } from "react";
 
-const ContainerOpcao = styled.button`
+const ContainerOpcao = styled.div`
   width: 290px;
   height: 70px;
   font-size: 24px;
   font-weight: lighter;
   background-color: ${(props) =>
-    props.$opcao === props.$valor ? "#006d5b" : "#f2f1ed"};
+    props.$opcao === props.$value ? "#006d5b" : "#f2f1ed"};
   border: 3px solid
-    ${(props) => (props.$opcao === props.$valor ? "#19433F" : "#006d5b")};
-  color: ${(props) => (props.$opcao === props.$valor ? "#f2f1ed" : "#000")};
+    ${(props) => (props.$opcao === props.$value ? "#19433F" : "#006d5b")};
+  color: ${(props) => (props.$opcao === props.$value ? "#f2f1ed" : "#000")};
   font-weight: ${(props) =>
-    props.$opcao === props.$valor ? "bold" : "lighter"};
+    props.$opcao === props.$value ? "bold" : "lighter"};
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -33,18 +33,21 @@ const ContainerOpcao = styled.button`
   }
 `;
 
-export default function CardOpcao({ children, opcao, set, valor }) {
-  function Selecionar(opc) {
-    opc === opcao ? (opc = "") : opc;
-    return set(opc);
-  }
+export default function CardOpcao({
+  children,
+  value,
+  campo,
+  setDados,
+  setSelecionado,
+  selecionado,
+}) {
+  const Selecionar = () => {
+    setDados((prev) => ({ ...prev, [campo]: value }));
+    setSelecionado(value);
+  };
 
   return (
-    <ContainerOpcao
-      onClick={() => Selecionar(valor)}
-      $opcao={opcao}
-      $valor={valor}
-    >
+    <ContainerOpcao onClick={Selecionar} $value={value} $opcao={selecionado}>
       {children}
     </ContainerOpcao>
   );

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Botao from "../Botao";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { children } from "react";
 
 const ContainerBotoes = styled.div`
   display: flex;
@@ -10,27 +11,28 @@ const ContainerBotoes = styled.div`
 `;
 
 export default function SecaoBotoes({
-  caminho = "/",
   tamanhoBotoes = "231px",
+  children = "doar",
+  AoClicar,
+  tipo = "submit",
 }) {
   const navegar = useNavigate();
+
   return (
     <ContainerBotoes>
-      <Link onClick={() => navegar(-1)} style={{ textDecoration: "none" }}>
-        <Botao
-          width={tamanhoBotoes}
-          cor="rgba(0,0,0,0.5)"
-          corFundo="none"
-          corLinha=" rgba(0,0,0,0.5)"
-        >
-          Voltar
-        </Botao>
-      </Link>
-      <Link to={caminho} style={{ textDecoration: "none" }}>
-        <Botao type="submit" width={tamanhoBotoes}>
-          Doar
-        </Botao>
-      </Link>
+      <Botao
+        width={tamanhoBotoes}
+        cor="rgba(0,0,0,0.5)"
+        corFundo="none"
+        corLinha=" rgba(0,0,0,0.5)"
+        onClick={() => navegar(-1)}
+      >
+        Voltar
+      </Botao>
+
+      <Botao type={tipo} width={tamanhoBotoes} onClick={AoClicar}>
+        {children}
+      </Botao>
     </ContainerBotoes>
   );
 }

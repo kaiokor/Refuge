@@ -12,15 +12,10 @@ const InputContaier = styled.div`
   justify-content: space-between;
   padding: 0 8px;
   box-sizing: border-box;
-  p {
-    font-size: 30px;
-    color: #006d5b;
-    font-weight: bold;
-  }
 `;
 
 // botoes + e -
-const InputBotao = styled.button`
+const InputBotao = styled.div`
   background-color: #006d5b;
   border: none;
   color: white;
@@ -32,26 +27,51 @@ const InputBotao = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
   &:hover {
     background-color: #19433f;
   }
 `;
 
-export default function InputQuantidade() {
-  const [quantidade, setQuantidade] = useState(0);
+const InputQuant = styled.input`
+  font-size: 30px;
+  color: #006d5b;
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  width: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+`;
 
+export default function InputQuantidade({
+  AoMudar,
+  value,
+  name,
+  dados,
+  setDados,
+}) {
   function DiminuiVal() {
-    return quantidade > 0 ? setQuantidade(quantidade - 1) : quantidade;
+    dados[name] >= 1
+      ? setDados((prev) => ({ ...prev, [name]: Number(dados[name]) - 1 }))
+      : dados[name];
   }
 
-  function AumentaVal() {
-    return setQuantidade(quantidade + 1);
+  function AumentaVal(e) {
+    setDados((prev) => ({ ...prev, [name]: Number(dados[name]) + 1 }));
   }
 
   return (
     <InputContaier>
       <InputBotao onClick={DiminuiVal}>-</InputBotao>
-      <p className="inputVal">{quantidade}</p>
+      <InputQuant
+        className="inputVal"
+        name={name}
+        value={value}
+        onChange={AoMudar}
+      ></InputQuant>
       <InputBotao onClick={AumentaVal}>+</InputBotao>
     </InputContaier>
   );

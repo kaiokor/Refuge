@@ -18,6 +18,9 @@ const TextoBanner = styled.div`
     font-weight: bold;
     color: #00302f;
   }
+  p {
+    font-size: 28px;
+  }
 `;
 
 const ImagemBanner = styled.img``;
@@ -27,17 +30,18 @@ export default function Banner({
   titulo,
   tituloBotao = "Quero Doar",
   rotaBotao = "/",
+  botao = true,
 }) {
   return (
     <BannerContainer>
       <TextoBanner>
         <h1>{titulo}</h1>
-        <p>{children}</p>
+        {children}
         <Link
           to={rotaBotao}
           style={{ textDecoration: "none", color: "inherit" }}
         >
-          <Botao>{tituloBotao}</Botao>
+          {botao && <Botao marginTop="18px">{tituloBotao}</Botao>}
         </Link>
       </TextoBanner>
       <ImagemBanner src="/imagens/zula.png" alt="Banner" />

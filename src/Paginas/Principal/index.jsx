@@ -2,16 +2,16 @@ import Banner from "../../components/Banner";
 import BannerDoacao from "../../components/BannerDoacao";
 import BannerEstatistica from "../../components/BannerEstatistica";
 import Destaque from "../../components/Destaques";
-import EstilosGlobais from "../../components/EstilosGlobais";
 import Footer from "../../components/Footer";
 import Nav from "../../components/nav";
-import styled from "styled-components";
+
 import TelaContainer from "../../components/TelaContainer";
 
 export default function Principal() {
   return (
     <TelaContainer>
       <Nav></Nav>
+
       <Banner
         titulo="Doe e pesquise instituições, de forma segura, e veja o impacto que vc
           fez em tempo real"
