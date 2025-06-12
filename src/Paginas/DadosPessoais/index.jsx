@@ -52,12 +52,12 @@ export default function DadosPessoais() {
 
   async function Enviar(e) {
     e.preventDefault();
-    await fetch("https://refuge-api-kdff.vercel.app/historico", {
+    await fetch("https://refuge-api.vercel.app/historico", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(dadosCompleto),
     });
-    await fetch(`https://refuge-api-kdff.vercel.app/usuarios/${usuario._id}`, {
+    await fetch(`https://refuge-api.vercel.app/usuarios/${usuario._id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ refugeCoins: novoRefugeCoins }),
