@@ -6,7 +6,7 @@ import Footer from "../../components/Footer";
 import { Link, useParams } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { OrgContext } from "../../context/OrgContext";
-import { UsuarioContext } from "../../context/usuarioContext";
+import { UsuarioContext } from "../../context/UsuarioContext";
 import Nav from "../../components/Nav";
 
 const BannerOrg = styled.div`

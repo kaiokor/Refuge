@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Botao from "../Botao";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import { UsuarioContext } from "../../context/usuarioContext";
+import { UsuarioContext } from "../../context/UsuarioContext.jsx";
 
 const NavContainer = styled.div`
   max-width: 1920px;

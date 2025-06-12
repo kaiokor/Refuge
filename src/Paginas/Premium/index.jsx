@@ -8,7 +8,7 @@ import Form from "../../components/Form";
 import SecaoBotoes from "../../components/SecaoBotoes";
 import SecaoDados from "../../components/SecaoDados";
 import InputTexto from "../../components/inputTexto";
-import { UsuarioContext } from "../../context/usuarioContext";
+import { UsuarioContext } from "../../context/UsuarioContext";
 import { useNavigate } from "react-router-dom";
 
 const RfgCoinsCtn = styled.div`
@@ -90,7 +90,7 @@ export default function Premium() {
   async function Enviar(e) {
     e.preventDefault();
     const resp = fetch(
-      `https://refuge-api-kdff.vercel.app/usuarios/${usuario._id}`,
+      `https://refuge-api.vercel.app/usuarios/${usuario._id}`,
       {
         method: "PUT",
         headers: { "Content-Type": "application/json" },

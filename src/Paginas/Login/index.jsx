@@ -5,7 +5,7 @@ import InputTexto from "../../components/inputTexto";
 import { Link, useNavigate } from "react-router-dom";
 import SecaoBotoes from "../../components/SecaoBotoes";
 import { useContext, useState } from "react";
-import { UsuarioContext } from "../../context/usuarioContext";
+import { UsuarioContext } from "../../context/UsuarioContext";
 import Nav from "../../components/Nav";
 
 const TelaLoginContainer = styled.div`
@@ -81,7 +81,7 @@ export default function Login() {
   async function TemUsuario(e) {
     e.preventDefault();
     try {
-      const resp = await fetch("https://refuge-api-kdff.vercel.app/usuarios");
+      const resp = await fetch("https://refuge-api.vercel.app/usuarios/");
       const dados = await resp.json();
       const usuarioExiste = dados.some(
         (item) => item.email === login.email && item.senha === login.senha

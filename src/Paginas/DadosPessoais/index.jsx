@@ -9,7 +9,7 @@ import SecaoBotoes from "../../components/SecaoBotoes";
 import styled from "styled-components";
 import { useNavigate, useParams } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
-import { UsuarioContext } from "../../context/usuarioContext";
+import { UsuarioContext } from "../../context/UsuarioContext";
 
 const Div1 = styled.div`
   display: flex;

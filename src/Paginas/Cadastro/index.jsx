@@ -1,12 +1,12 @@
 import styled from "styled-components";
 import Form from "../../components/Form";
-import Nav from "../../components/nav";
+import Nav from "../../components/Nav";
 import TelaContainer from "../../components/TelaContainer";
 import InputOpcao from "../../components/InputOpcao";
 import InputTexto from "../../components/inputTexto";
 import SecaoDados from "../../components/SecaoDados";
-import { useState } from "react";
 import Botao from "../../components/Botao";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Div1 = styled.div`
@@ -37,7 +37,7 @@ export default function Cadastro() {
 
   async function Cadastrar(e) {
     e.preventDefault();
-    const resp = await fetch("https://refuge-api-kdff.vercel.app/usuarios", {
+    const resp = await fetch("https://refuge-api.vercel.app/usuarios/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(user),

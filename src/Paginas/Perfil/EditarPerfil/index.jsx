@@ -7,7 +7,7 @@ import SecaoBotoes from "../../../components/SecaoBotoes";
 import SecaoDados from "../../../components/SecaoDados";
 import TelaContainer from "../../../components/TelaContainer";
 import styled from "styled-components";
-import { UsuarioContext } from "../../../context/usuarioContext";
+import { UsuarioContext } from "../../../context/UsuarioContext";
 import { useNavigate } from "react-router-dom";
 
 const FotoPerfilStld = styled.div`
@@ -52,7 +52,7 @@ export default function EditarPerfil() {
     e.preventDefault();
     try {
       const res = await fetch(
-        `https://refuge-api-kdff.vercel.app/usuarios/${usuario._id}`,
+        `https://refuge-api.vercel.app/usuarios/${usuario._id}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
@@ -69,7 +69,7 @@ export default function EditarPerfil() {
 
     try {
       const res = await fetch(
-        `https://refuge-api-kdff.vercel.app/usuarios/${usuario._id}`
+        `https://refuge-api.vercel.app/usuarios/${usuario._id}`
       );
       const dados = await res.json();
       setUsuario(dados);

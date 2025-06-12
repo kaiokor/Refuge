@@ -4,7 +4,7 @@ import Form from "../../components/Form";
 import SecaoDados from "../../components/SecaoDados";
 import TelaContainer from "../../components/TelaContainer";
 import styled from "styled-components";
-import { UsuarioContext } from "../../context/usuarioContext";
+import { UsuarioContext } from "../../context/UsuarioContext.jsx";
 import { useNavigate } from "react-router-dom";
 import CardHistorico from "../../components/CardHistorico";
 import Nav from "../../components/Nav";
@@ -56,9 +56,7 @@ export default function Perfil() {
   useEffect(() => {
     async function ListarHistorico() {
       try {
-        const resp = await fetch(
-          "https://refuge-api-kdff.vercel.app/historico"
-        );
+        const resp = await fetch("https://refuge-api.vercel.app/historico");
         const historico = await resp.json();
         const historicoUsuario = historico.filter(
           (item) => item.usuario._id === usuario._id
@@ -78,7 +76,7 @@ export default function Perfil() {
 
   async function Excluir(e) {
     e.preventDefault();
-    await fetch(`http://localhost:3000/usuarios/${usuario._id}`, {
+    await fetch(`https://refuge-api.vercel.app/usuarios/${usuario._id}`, {
       method: "DELETE",
     });
     setUsuario();
