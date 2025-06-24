@@ -58,7 +58,7 @@ A cada doação feita por meio de uma conta com assinatura premium, é retornado
 
 - Node.js ≥ 16  
 - npm  
-- Endereço da API (arquivo `.env` com variável DB_CONNECTION_STRING = LINK_DO_MONGODB_ATLAS)
+- Endereço da API
 
 ### Instalação
 
