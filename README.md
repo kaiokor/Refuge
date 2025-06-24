@@ -77,7 +77,7 @@ npm run dev
 ## 👤 Autor
 Nome: Kaio Gomes do Nascimento Araújo
 
-GitHub: kaiokor
+GitHub: [Meu GitHub](https://github.com/kaiokor)
 
 LinkedIn: [Meu Perfil](https://www.linkedin.com/in/kaio-gomes-805253282/)
 
